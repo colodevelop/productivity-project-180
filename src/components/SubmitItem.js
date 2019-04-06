@@ -11,7 +11,7 @@ function SubmitItem(props) {
           placeholder="Put in your work"
           onChange={props.onChange}
         />
-        <select name="" id="">
+        <select value={props.toDoValue} onChange={props.selectValue}>
           <option value="Work">Work</option>
           <option value="School">School</option>
           <option value="Fun">Fun</option>

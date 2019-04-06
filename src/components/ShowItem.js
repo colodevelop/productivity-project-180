@@ -6,7 +6,11 @@ const ShowItem = props => {
     return <li key={id}>{item}</li>;
   });
 
-  return <ul>{items}</ul>;
+  return (
+    <div>
+      <ul>{items}</ul>
+    </div>
+  );
 };
 
 export default ShowItem;
