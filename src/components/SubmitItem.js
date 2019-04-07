@@ -1,23 +1,32 @@
 import React from "react";
 
-function SubmitItem(props) {
+function SubmitItem({ onSubmit, value, onChange, selectValue, toDoValue }) {
   return (
     <div>
-      <form onSubmit={props.onSubmit}>
+      <form onSubmit={onSubmit}>
         {/* The input takes the value, and changes the state.term on the App function. */}
-        <input
-          type="text"
-          value={props.value}
-          placeholder="Put in your work"
-          onChange={props.onChange}
-        />
-        <select value={props.toDoValue} onChange={props.selectValue}>
-          <option value="Work">Work</option>
-          <option value="School">School</option>
-          <option value="Fun">Fun</option>
-        </select>
+        <div className="ui fluid input">
+          <input
+            type="text"
+            value={value}
+            placeholder="Put in your work"
+            onChange={onChange}
+          />
+        </div>
 
-        <button>Complete</button>
+        <div className="select-button">
+          <select
+            className="ui dropdown"
+            value={toDoValue}
+            onChange={selectValue}
+          >
+            <option value="Work">Work</option>
+            <option value="School">School</option>
+            <option value="Fun">Fun</option>
+            <option value="Series">Series</option>
+          </select>
+          <button className="ui button complete-button">Complete</button>
+        </div>
       </form>
     </div>
   );

@@ -7,7 +7,7 @@ import "./css/app.css";
 class App extends Component {
   state = {
     term: "",
-    items: ["Appels", "Peren"],
+    items: [],
     toDoValue: "Work",
     points: null
   };
@@ -27,23 +27,27 @@ class App extends Component {
     this.addPointsFunc();
   };
 
-  // Add points on added list item.
+  // Add points depending on how hard the task was.
   addPointsFunc = () => {
+    const toDoValue = this.state.toDoValue;
     // Looks at what kind of value is chosen 'Work' or 'school' etc. And calculates how many points he can get.
     // The harder the task was, the more points you will get.
-
     this.setState(prevState => {
-      if (this.state.toDoValue === "Work") {
+      if (toDoValue === "Work") {
         return {
           points: prevState.points + 1
         };
-      } else if (this.state.toDoValue === "School") {
+      } else if (toDoValue === "School") {
         return {
           points: prevState.points + 2
         };
-      } else {
+      } else if (toDoValue === "Fun") {
         return {
-          points: prevState.points + 3
+          points: prevState.points - 1
+        };
+      } else if (toDoValue === "Series") {
+        return {
+          points: prevState.points - 2
         };
       }
     });
@@ -61,7 +65,7 @@ class App extends Component {
     return (
       <div className="main-content">
         <div>
-          <h1>Nick Productivity</h1>
+          <h1 className="main-header">Project 180 °</h1>
         </div>
         <SubmitItem
           onChange={this.onChange}
@@ -70,8 +74,16 @@ class App extends Component {
           toDoValue={this.state.toDoValue}
           selectValue={this.selectValue}
         />
-        <ShowItem items={this.state.items} />
-        <AddPoints points={this.state.points} />
+
+        <div className="split">
+          <div className="column">
+            
+            <ShowItem items={this.state.items} />
+          </div>
+          <div className="column">
+            <AddPoints points={this.state.points} />
+          </div>
+        </div>
       </div>
     );
   }

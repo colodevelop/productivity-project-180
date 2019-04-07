@@ -1,14 +1,15 @@
 import React from "react";
+import ToDoItem from "./ToDoItem";
 
-const ShowItem = props => {
+const ShowItem = ({ items }) => {
   // Maps over the item list state, and returns a list item.
-  const items = props.items.map((item, id) => {
-    return <li key={id}>{item}</li>;
+  const itemList = items.map((item, id) => {
+    return <ToDoItem key={id} item={item} />;
   });
 
   return (
     <div>
-      <ul>{items}</ul>
+      <ul>{itemList}</ul>
     </div>
   );
 };

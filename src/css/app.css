@@ -3,10 +3,44 @@
   padding: 0;
 }
 
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 .main-content {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.main-header {
+  text-align: center;
+  padding: 2rem;
+}
+
+.select-button {
   display: flex;
+  justify-content: center;
+}
+
+.select-value {
+  padding: 0rem 2rem 0rem 2rem;
+}
+
+.split {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+  text-align: center;
+}
+
+/* 
+.completebutton
+/* display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 200px;
-}
+  height: 200px; */
