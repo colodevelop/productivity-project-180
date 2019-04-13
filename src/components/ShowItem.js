@@ -1,17 +1,16 @@
-import React from "react";
-import ToDoItem from "./ToDoItem";
+import React, { Component } from "react";
 
-const ShowItem = ({ items }) => {
-  // Maps over the item list state, and returns a list item.
-  const itemList = items.map((item, id) => {
-    return <ToDoItem key={id} item={item} />;
-  });
+class ShowPoints extends Component {
+  state = {};
 
-  return (
-    <div>
-      <ul>{itemList}</ul>
-    </div>
-  );
-};
+  render() {
+    return (
+      <div>
+        <h1>Appels</h1>
+        <h1>Appels</h1>
+      </div>
+    );
+  }
+}
 
-export default ShowItem;
+export default ShowPoints;
